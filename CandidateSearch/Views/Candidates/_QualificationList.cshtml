@@ -1,0 +1,45 @@
+﻿@model List<CandidateSearch.Models.Candidates.Qualification>
+@{
+}
+    <div class="col-md-8">
+        <h4 style="text-align:center">Qualifications</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            @foreach (var qualification in Model)
+            {
+                <div class="col-md-4">
+                    <dt>
+                        @Html.DisplayNameFor(q => qualification.Type)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(q => qualification.Type)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(q => qualification.Name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(q => qualification.Name)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(q => qualification.StartDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(q => qualification.StartDate)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(q => qualification.EndDate)
+                    </dt>
+                    <dd>
+                        @if (qualification.EndDate.HasValue)
+                        {
+                            @Html.DisplayFor(q => qualification.EndDate)
+                        }
+                        else
+                        {
+                            <span>Present</span>
+                        }
+                    </dd>
+                </div>
+            }
+            </dl>
+    </div>

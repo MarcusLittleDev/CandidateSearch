@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div style="height:75vh"id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" style="height:100%" role="listbox">
+        <div class="item active" style="height:100%">
+            <div class="jumbotron" style="height:100%" role="option">
+                <h1 style="text-align:center">Welcome To Candidate Search</h1>
+                <hr />
+                <p style="text-align:center">Here you will be able to search for Candidates for any roles you can think of by the qualifications that you need.</p>
+            </div>
+        </div>
+        <div class="item" style="height:100%">
+            <div class="jumbotron" role="option" style="height:100%">
+                <h1 style="text-align:center">Candidates! Start your engines!</h1>
+                <hr />
+                <p style="text-align:center">Candidates you can show potential employers your worth by creating a small profile displaying your information and qualifications.</p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>

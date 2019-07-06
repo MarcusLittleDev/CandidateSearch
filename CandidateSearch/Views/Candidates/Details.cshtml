@@ -1,0 +1,58 @@
+﻿@model CandidateSearch.Models.Candidates.Candidate
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <div class="row">
+        <div class="col-md-4">
+            <h4 style="text-align:center">Candidate</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EmailAddress)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EmailAddress)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ZipCode)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ZipCode)
+                </dd>
+            </dl>
+        </div>
+        @{ 
+            if (Model.Qualifications.Any())
+            {
+                await Html.RenderPartialAsync("_QualificationList", Model.Qualifications);
+            }
+        }
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

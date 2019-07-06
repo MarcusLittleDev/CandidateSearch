@@ -1,0 +1,104 @@
+﻿@model CandidateSearch.Models.Candidates.CandidateSearchModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <form asp-controller="Candidates" asp-action="Index" method="get">
+        <div class="row filters" >
+            <div class="col-md-3 filter">
+                <p>First Name</p>
+                <input type="text" asp-for="FirstName" placeholder="Michael" />
+            </div>
+            <div class="col-md-3 filter">
+                <p>Last Name</p>
+                <input type="text" asp-for="LastName" placeholder="Dawson" />
+            </div>
+            <div class="col-md-3 filter">
+                <p>Email Address</p>
+                <input type="text" asp-for="EmailAddress" placeholder="Michael@theisland.com" />
+            </div>
+            <div class="col-md-3 filter">
+                <p>Phone Number</p>
+                <input type="text" asp-for="PhoneNumber" placeholder="2372648394" />
+            </div>
+            <div class="col-md-3 filter">
+                <p>Zip Code</p>
+                <input type="text" asp-for="ZipCode" placeholder="38490" />
+            </div>
+            <div class="col-md-3 filter">
+                <p>Qualification Name</p>
+                <input type="text" asp-for="QualificationName" placeholder="Artist" />
+            </div>
+            <div class="col-md-3 filter">
+                <p>Qualification Type</p>
+                <select name="Type" asp-for="Type" asp-items="Html.GetEnumSelectList<CandidateSearch.Models.Candidates.QualificationType>()">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <div class="col-md-3 filter">
+                <p>Start Date</p>
+                <input asp-for="StartDate" name="startDate" type="date" />
+            </div>
+            <div class="col-md-3 filter">
+                <p>End Date</p>
+                <input asp-for="EndDate" name="endDate" type="date" />
+            </div>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-orange" value="Filter" />
+        </div>
+    </form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Candidates) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
